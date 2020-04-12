@@ -15,7 +15,7 @@ Meeting
 1-Project Description:
 -------------------------------------
 What is **Meeting** ?
-an organizing tool for study groups to create study rooms with whiteboards and video calls.
+an organizing tool for study groups to create study rooms with and video calls and file sharing system.
 
 2-Team members:
 ---------------------------------
