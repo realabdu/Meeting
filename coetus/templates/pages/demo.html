@@ -4,13 +4,24 @@
   <style>
 
     .files-section {
+      display: none;
       border: black solid;
       border-radius: 30px;
       background-color: #1fcccc;
     }
+  .pdf-wrapper{
+    display: none;
+  }
+  .file{
+    cursor: pointer;
+  }
+  .icon:hover{
+    content:url("https://coetus.s3.eu-central-1.amazonaws.com/file+(1).svg");
+  }
+
 
   </style>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
   <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
   <div id="start" class="row justify-content-center mt-5">
     <button class=" mt-5 btn btn-primary btn-lg" onclick="run()">Start</button>
@@ -19,27 +30,33 @@
     <div class="row">
       <div class="col-6">
         <div class="row">
-          <div class="col-12 files-section py-1 px-1">
+          <div id="files_section" class="col-12 files-section py-1 px-1">
             <div class="row">
                 {% for file in files %}
                   <div class="col mx-1 text-center ">
-                    <a href="{{ file.content.url }}">
-                      <img class="" style="width: 80px; height: 100px;" src="{% static 'images/file.svg' %}">
-                      <p class="text-center">{{ file.content.name }}</p>
+                    <a class="file" onclick="show_pdf({{ file.id }})">
+                      <img class="icon" style="width: 50px; height: 100px;"
+                           src="https://coetus.s3.eu-central-1.amazonaws.com/file.svg">
+                      <p class="text-center" style="font-size: 0.9rem;">{{ file.content.name }}</p>
                     </a>
                   </div>
-                  <div id="pdf">
 
-                  </div>
-                  <script>PDFObject.embed("{{file.content.url}}", "#pdf");</script>
                 {% endfor %}
             </div>
           </div>
 
+        </div>
+      <div id="pdf_wrapper" class="row justify-content-center mt-2 pdf-wrapper">
+            <div class="col-12">
+              <div id="pdf" style="height: 500px">
 
+              </div>
+            </div>
+          </div>
+
+          <script>PDFObject.embed("{{sp_file.content.url}}", "#pdf");</script>
           <!--<iframe src="https://docs.google.com/gview?url=https://path.com/to/your/pdf.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
         -->
-        </div>
       </div>
       <div class="col-6" id="iframe-wrapper">
 
@@ -50,6 +67,12 @@
   <style>
   </style>
   <script>
+
+  function show_pdf(id) {
+      console.log(id)
+      location.replace(`/demo/${id}`)
+
+  }
       function showEvent(e) {
           console.log("video call event -->", e);
       }
@@ -57,6 +80,8 @@
 
       async function run() {
           $(start).css('display', 'none')
+           $(files_section).css('display', 'block')
+          $(pdf_wrapper).css('display', 'block')
           room = {url: 'https://coetus.daily.co/hello'}
           callFrame = window.DailyIframe.createFrame(document.getElementById('iframe-wrapper'), {
               iframeStyle: {

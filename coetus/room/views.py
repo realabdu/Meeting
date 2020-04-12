@@ -6,9 +6,16 @@ from .models import room , file
 
 
 @login_required
-def demo(request):
+def demo(request , id=2):
+    if id != 0:
+        id_file = file.objects.get(id=id)
+    else:
+        id_file = file.objects.get(id=2)
+
     qs_f = file.objects.all()
-    return render(request=request , template_name='pages/demo.html', context={'files':qs_f}  )
+
+    return render(request=request , template_name='pages/demo.html', context={'files':qs_f, "sp_file" : id_file}  )
+
 
 def landing(request):
 
