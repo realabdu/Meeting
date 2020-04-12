@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="container">
- {% for room in rooms %}
-  <a href="{{  room.files.url }}">{{ room.files.name }}</a>
+ {% for file in files %}
+  <a href="{{ file.content.url }}">{{ file.content.name }}</a>
   {% endfor %}
 <div class="row justify-content-center mt-5">
 <h1 class="text-center mt-5 "><strong>Coetus</strong> is organizing for study groups to create study rooms with whiteboards and video calls. </h1>

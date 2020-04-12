@@ -9,6 +9,6 @@ class room(models.Model):
 
 
 class file(models.Model):
-    room = models.ForeignKey('room' , null=True , related_name='files' , on_delete=models.CASCADE)
-
+    room = models.ForeignKey(room , null=True , related_name='files' , on_delete=models.CASCADE)
+    content = models.FileField(null=True)
 # Create your models here.
