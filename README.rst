@@ -1,7 +1,10 @@
-#Coetus
+Coetus
 ======
 
-study group organizing platfrom 
+What is **coetus** ? 
+coetus is an organzizing tool for study groups , where they can have rooms with whiteboards and video calls.
+
+[coetus](https://cryptic-oasis-05466.herokuapp.com)
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
