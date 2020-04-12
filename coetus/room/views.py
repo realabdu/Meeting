@@ -8,7 +8,7 @@ def demo(request):
 
 def landing(request):
     qs = room.objects.all()
-    return render(request=request , template_name='pages/landing.html' , context={qs:'rooms'} )
+    return render(request=request , template_name='pages/landing.html' , context={'rooms':qs} )
 
 
 # Create your views here.
