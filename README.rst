@@ -1,7 +1,11 @@
 Coetus
 ======
 
+<<<<<<< HEAD
 What is **coetus** ?
+=======
+What is **coetus** ? 
+>>>>>>> a713b618fb91d65915523d858ac59c935198feb2
 coetus is an organzizing tool for study groups , where they can have rooms with whiteboards and video calls.
 
 [coetus](https://cryptic-oasis-05466.herokuapp.com)
